@@ -2,17 +2,13 @@ import React, { useEffect, useState } from 'react'
 import '../styles/App.css';
 const App = () => {
 
-  const [time, setTime] = useState('')
- 
-
-  // console.log(new Date().toLocaleString())
- 
-  useEffect(()=> {
-    setTimeout(() => {
-      var t = new Date().toLocaleString()
-      setTime(t)
-    },1000)
-  },[time])
+  let date = new Date();
+  const [time, setTime] = useState(date.toLocaleString());
+  useEffect(() => {}, []);
+  setInterval(() => {
+    date = new Date();
+    setTime(date.toLocaleString());
+  }, 1000);
 
   return (
     <div id="main">
